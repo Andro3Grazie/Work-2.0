@@ -1,0 +1,57 @@
+:root {
+  /* Primary color */
+  --primary-color: 19, 52, 76;
+
+  /* Secondary color */
+  --secondary-color: 231, 234, 237;
+
+  /* Text color */
+  --text: 255, 255, 255;
+
+  --invert-text: 19, 52, 76;
+
+  /* Mask color */
+  --fill-color: 19, 52, 76;
+
+  /* Background color */
+  --background-color: 255, 255, 255;
+
+  /* Input color */
+  --input-color: 255, 255, 255;
+
+  /* Use this color when the theme have a conflict */
+  --on-light-BG: 19, 52, 76;
+}
+
+.dark-theme {
+  /* Primary color */
+  --primary-color: 18, 18, 18;
+
+  /* Secondary color */
+  --secondary-color: 231, 231, 231;
+
+  /* Text color */
+  --text: 255, 255, 255;
+
+  --invert-text: 18, 18, 18;
+
+  /* Mask color */
+  --fill-color: 255, 255, 255;
+
+  /* Background color */
+  --background-color: 18, 18, 18;
+
+  /* Use this color when the theme have a conflict */
+  --on-light-BG: 255, 255, 255;
+}
+
+body {
+  background: linear-gradient(
+      0deg,
+      rgba(var(--fill-color), 0.09),
+      rgba(var(--fill-color), 0.09)
+    ),
+    rgba(var(--background-color));
+
+  color: rgba(var(--text));
+}

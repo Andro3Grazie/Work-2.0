@@ -1,0 +1,16 @@
+.result {
+  background: linear-gradient(
+      0deg,
+      rgba(var(--fill-color), 0.09),
+      rgba(var(--fill-color), 0.09)
+    ),
+    rgba(var(--background-color));
+
+  color: rgba(var(--on-light-BG));
+
+  font-weight: 500;
+  font-size: 20px;
+
+  min-width: 16rem;
+  max-width: 16rem;
+}

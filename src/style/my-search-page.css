@@ -1,0 +1,128 @@
+/* my search page */
+.my-search-box {
+  background: linear-gradient(
+      0deg,
+      rgba(var(--fill-color), 0.15),
+      rgba(var(--fill-color), 0.15)
+    ),
+    rgba(var(--primary-color));
+
+  color: rgba(var(--text));
+  box-shadow: 0px 0px 10px rgba(var(--primary-color));
+  caret-color: rgba(var(--primary-color));
+
+  height: 3.5rem;
+  max-height: 3.5rem;
+}
+.my-search-bar {
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+}
+.my-search-logo-text,
+.my-search-bar {
+  color: rgba(var(--invert-text));
+  background-color: rgba(var(--input-color));
+  border: 1px solid rgba(var(--input-color));
+
+  border-radius: 0;
+
+  height: 3.5rem;
+  max-height: 3.5rem;
+}
+.my-search-bar::-webkit-input-placeholder {
+  font-weight: 500;
+  color: rgba(var(--primary-color));
+  font-size: 18px;
+}
+.my-search-bar::-moz-placeholder {
+  font-weight: 500;
+  color: rgba(var(--primary-color));
+  font-size: 18px;
+}
+.my-search-bar::-ms-input-placeholder {
+  font-weight: 500;
+  color: rgba(var(--primary-color));
+  font-size: 18px;
+}
+.my-search-bar:focus {
+  box-shadow: none;
+  border: 0;
+}
+
+.my-search-placeholder {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(var(--primary-color));
+  background-color: rgba(var(--text));
+  border-radius: 5px;
+  height: 2.5rem;
+  max-height: 2.5rem;
+  cursor: pointer;
+}
+
+.history-title,
+.history-subtitle {
+  font-weight: 500;
+  font-size: 18px;
+  color: rgba(var(--on-light-BG));
+}
+.history-subtitle {
+  font-size: 14px;
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.my-search-history {
+  padding-top: 2rem;
+}
+
+/* history elements */
+.history-element {
+  color: rgba(var(--on-light-BG));
+  background: linear-gradient(
+      0deg,
+      rgba(var(--fill-color), 0.09),
+      rgba(var(--fill-color), 0.09)
+    ),
+    rgba(var(--background-color));
+  border: none;
+  height: 61px;
+  max-height: 61px;
+}
+.history-element-id {
+  background-color: rgba(var(--primary-color));
+  opacity: 0.9;
+  color: rgba(var(--text));
+  font-size: 18px;
+  font-weight: 400;
+
+  /* width: 40px; */
+  max-width: 40px;
+
+  border-top-left-radius: 8px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 2px;
+}
+.history-element-title {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding-right: 1rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.history-element-subtitle {
+  font-size: 12px;
+  font-weight: 300;
+  opacity: 0.75;
+  margin-bottom: 0;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

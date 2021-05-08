@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Author -->
+    <meta name="author" content="Alessandro Mieli" />
+
+    <!-- Chrome Tab color -->
+    <meta name="theme-color" content="#002173" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/8c55047497.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/style/main.css" />
+    <link rel="stylesheet" href="src/style/home-page.css" />
+    <link rel="stylesheet" href="src/style/search-page.css" />
+    <link rel="stylesheet" href="src/style/my-search-page.css" />
+    <link rel="stylesheet" href="src/style/live-search.css" />
+    <link rel="stylesheet" href="src/style/result.css" />
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="src/favicon/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- Title -->
+    <title>T&F Moda 2.0</title>
+  </head>
+  <body>
+    <!-- container for the home page section -->
+    <div class="home-page">
+      <!-- Navabr Logo -->
+      <nav class="navbar navbar-expand-lg navbar-collapse">
+        <div class="container text-center" style="flex-direction: column">
+          <div class="row">
+            <div class="col">
+              <a
+                class="navbar-brand"
+                href="index.html"
+                style="font-size: 0.8rem"
+                >T&F Moda</a
+              >
+            </div>
+          </div>
+          <div
+            class="row p-4 mt-4 d-flex align-content-center"
+            style="height: 144px; max-height: 144px"
+          >
+            <div class="col">
+              <p id="todayShift" class="mb-0 text-uppercase h2">
+                <!-- Turno dove sono di sosta -->
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="card result" style="display: none">
+                <div class="card-body result-body p-3">
+                  <!-- Search result -->
+                  <span class="nome text-capitalize" style="display: none">
+                    <!-- Search result for the person who is in the searched place -->
+                  </span>
+                  <span class="sosta text-capitalize" style="display: none">
+                    <!-- Search result for the place where the searched person is -->
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Calendar -->
+      <div
+        id="calendar"
+        class="carousel slide d-block justify-content-center mt-4 pb-5 mb-5"
+        data-ride="carousel"
+        data-interval="false"
+      >
+        <div class="carousel-inner">
+          <!-- Calendar will be generated -->
+        </div>
+        <!-- ./Carousel-inner -->
+
+        <!-- Carousel-ctrl -->
+        <div class="carousel-ctrl container d-flex justify-content-center">
+          <a href="#calendar" data-slide="prev">
+            <i class="fas fa-less-than fa-lg"></i>
+          </a>
+          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+          <a href="#calendar" data-slide="next">
+            <i class="fas fa-greater-than fa-lg"></i>
+          </a>
+        </div>
+        <!-- ./Carousel-ctrl -->
+      </div>
+      <!-- ./Calendar -->
+    </div>
+    <!-- ./Home-page section -->
+
+    <!-- Container for the search page section -->
+    <div class="search-page" style="display: none">
+      <div class="search-box container mt-5">
+        <div class="row">
+          <div class="col">
+            <h1 class="search-title mb-4">Cerca</h1>
+          </div>
+        </div>
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <div class="input-group search-logo mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text search-logo-text">
+                    <i class="fas fa-search"></i>
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  class="form-control search-bar"
+                  placeholder="Soste o nomi"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col mt-3">
+            <span class="search-subtitle display-5">Naviga</span>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col" onclick="getList('sosta');">
+            <div class="soste-box">
+              <div class="card navigation-card">
+                <div
+                  class="card-body pl-4 navigation-card-body d-flex align-items-center"
+                >
+                  <span class="pl-3 navigation-card-title">Soste</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row my-3">
+          <div class="col" onclick="getList('nome');">
+            <div class="nomi-box">
+              <div class="card navigation-card">
+                <div
+                  class="card-body navigation-card-body d-flex align-items-center"
+                >
+                  <span class="pl-3 navigation-card-title">Nomi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row my-3">
+          <div class="col" onclick="getList('preferiti');">
+            <div class="nomi-box">
+              <div class="card navigation-card">
+                <div
+                  class="card-body navigation-card-body d-flex align-items-center"
+                >
+                  <span class="pl-3 navigation-card-title">Preferiti</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./Search-page section -->
+
+    <!-- Single search page -->
+    <div class="single-page container mt-5 mb-3" style="display: none">
+    </div>
+    <!-- ./Single search page -->
+
+      <!-- Container for the my search page section (where user type) -->
+      <div class="my-search-page" style="display: none">
+        <div class="my-search-box container p-0">
+          <div class="row p-0 m-auto">
+            <div class="col p-0 m-auto">
+              <div class="input-group my-search-logo">
+                <div class="input-group-prepend">
+                  <div
+                    class="input-group-text my-search-logo-text"
+                    id="my-search-arrow"
+                  >
+                    <i class="fas fa-arrow-left"></i>
+                  </div>
+                </div>
+                <input type="text" class="form-control my-search-bar" />
+                <div
+                  class="input-group-append my-search-logo-delete"
+                  style="display: none"
+                >
+                  <div
+                    class="input-group-text my-search-logo-text"
+                    id="my-search-x"
+                  >
+                    <i class="fas fa-times"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row m-auto">
+            <div class="col p-2 m-auto">
+              <div
+                class="my-search-placeholder d-flex align-items-center justify-content-center"
+              >
+                Cerca
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="container live-search-container mb-3 px-2"
+        style="display: none"
+      >
+        <!-- live search result -->
+      </div>
+
+      <div class="container my-search-history" style="display: none">
+        <div class="row mb-1">
+          <div class="col">
+            <span class="history-title">Ricerche recenti</span>
+          </div>
+        </div>
+        <div class="row no-gutters history-element mt-2">
+          <div class="col-auto my-auto">
+            <div class="history-element-id text-center p-2">10</div>
+          </div>
+          <div class="col-9 m-auto pl-1 marquee">
+            <h5 class="history-element-title text-capitalize py-1 marquee-text">
+              di cori sett/ amin shaim
+            </h5>
+            <p class="history-element-subtitle">Nominativo</p>
+          </div>
+          <div class="col-auto m-auto text-center">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col">
+            <span class="history-subtitle">Cancella ricerche recenti</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./My-search-page section -->
+
+    <!-- Footer -->
+    <footer class="footer fixed-bottom mb-4 mx-4">
+      <div
+        class="container d-flex justify-content-between p-3 px-4"
+        style="max-width: 264px"
+      >
+        <i class="fas fa-home" id="home-icon"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </div>
+    </footer>
+    <!-- ./Footer -->
+
+    <!-- Boostrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Custom JS -->
+    <script src="src/scripts/var.js"></script>
+    <script src="src/scripts/getEaster.js"></script>
+    <script src="src/scripts/cookie.js"></script>
+    <script src="src/scripts/theme.js"></script>
+    <script src="src/scripts/shift.js"></script>
+    <script src="src/scripts/calendar.js"></script>
+    <script src="src/scripts/my-search-page.js"></script>
+    <script src="src/scripts/main.js"></script>
+    <script src="src/scripts/setDate.js"></script>
+    <script src="src/scripts/result.js"></script>
+    <script src="src/scripts/live-search.js"></script>
+    <script src="src/scripts/search-result.js"></script>
+    <script src="src/scripts/search-page.js"></script>
+  </body>
+</html>

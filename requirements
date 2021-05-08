@@ -1,0 +1,18 @@
+- Knowing where they are today's date
+- Have the possibility to scroll / select between the places
+- Have the possibility to scroll / select between the date 
+- Knowing where someone is in a specific day
+- Have the possibility to search for someone and know where he/she is in the selected date
+- Have the possibility to search for a place and know who own it in the selected date 
+- On double click of the search icon the keyboard will open, with the history of the recent search
+- On one click the page (3) will open with the a search bar to click and two cards to select (Places) (Names)
+
+Color palette:
+--primary-color: #13344C;
+--secondary-color: #FFFFFF;
+--background-color: #E7EAED;
+
+color on primary color: var(--secondary-color);
+color on secondary and background color: var(--primary-color);
+
+there can be some variants regarding opacity and in one case there's the gradients between primary and secondary color
