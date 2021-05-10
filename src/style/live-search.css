@@ -2,11 +2,13 @@
 .live-search-container {
   color: rgba(var(--on-light-BG));
 }
-.live-search {
+.live-search,
+.manualShift-live-search {
   cursor: pointer;
 }
 
-.live-search-id {
+.live-search-id,
+.manualShift-live-search-id {
   background-color: rgba(var(--primary-color));
   opacity: 0.9;
   color: rgba(var(--text));
@@ -25,7 +27,8 @@
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 2px;
 }
-.live-search-title {
+.live-search-title,
+.manualShift-live-search-title {
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 0;
@@ -35,7 +38,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.live-search-subtitle {
+.live-search-subtitle,
+.manualShift-live-search-subtitle {
   font-size: 12px;
   font-weight: 300;
   opacity: 0.75;

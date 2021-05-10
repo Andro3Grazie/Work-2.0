@@ -1,6 +1,8 @@
 // Check theme before loading page
 $(document).ready(function () {
   if (getCookie('theme') == 'dark') toggleTheme();
+
+  winHeight = $(window).height();
 });
 calendarDay();
 getShift();
@@ -27,6 +29,7 @@ $('#home-icon').click(function () {
   $('.my-search-history').hide();
   $('.live-search-container').hide();
   $('.single-page').hide();
+  $('.manualShift-page').hide();
 });
 
 $('.search-logo').click(function () {
@@ -41,6 +44,8 @@ $('#search-icon').click(function () {
   $('.my-search-page').hide();
   $('.my-search-history').hide();
   $('.live-search-container').hide();
+  $('.manualShift-page').hide();
+
   if (clicks) {
     // Second Click -> Open search bar
     $('.single-page').hide();
@@ -79,3 +84,11 @@ function fixName(val) {
     val[i].name = val[i].name.toLowerCase().replace(/\s+/g, ' ').trim();
   }
 }
+
+// Check if keyboard is up on mobile
+// resize event listener to detect change in screen height
+window.addEventListener('resize', () => {
+  if (winHeight > $(window).height() + 100) {
+    $('.footer').hide();
+  } else $('.footer').fadeIn();
+});

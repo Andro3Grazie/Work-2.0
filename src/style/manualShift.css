@@ -1,0 +1,57 @@
+/* my search page */
+.manualShift-box {
+  background: linear-gradient(
+      0deg,
+      rgba(var(--fill-color), 0.15),
+      rgba(var(--fill-color), 0.15)
+    ),
+    rgba(var(--primary-color));
+
+  color: rgba(var(--text));
+  box-shadow: 0px 0px 10px rgba(var(--primary-color));
+  caret-color: rgba(var(--primary-color));
+
+  height: 3.5rem;
+  max-height: 3.5rem;
+}
+.manualShift-bar {
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+}
+.manualShift-text,
+.manualShift-bar {
+  color: rgba(var(--invert-text));
+  background-color: rgba(var(--input-color));
+  border: 1px solid rgba(var(--input-color));
+
+  border-radius: 0;
+
+  height: 3.5rem;
+  max-height: 3.5rem;
+}
+.manualShift::-webkit-input-placeholder {
+  font-weight: 500;
+  color: rgba(var(--primary-color));
+  font-size: 18px;
+}
+.manualShift-bar::-moz-placeholder {
+  font-weight: 500;
+  color: rgba(var(--primary-color));
+  font-size: 18px;
+}
+.manualShift-bar::-ms-input-placeholder {
+  font-weight: 500;
+  color: rgba(var(--primary-color));
+  font-size: 18px;
+}
+.manualShift-bar:focus {
+  box-shadow: none;
+  border: 0;
+}
+/* live search */
+.manualShift-container,
+.manualShift-typed-container {
+  color: rgba(var(--on-light-BG));
+}

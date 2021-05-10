@@ -1,7 +1,9 @@
 function calendarDay() {
-  let day = new Date(); // Initialized to a random date
+  let day = new Date(today); // Initialized to a random date
 
   day.setDate(today.getDate() - 10); // Set the date 10 days before today
+
+  $('.calendar-carousel').html('');
 
   for (let i = 0; i < 40; i++) {
     day.setDate(day.getDate() + 1); // Add one day
@@ -11,7 +13,7 @@ function calendarDay() {
       day.getDate() == today.getDate() &&
       day.getMonth() == today.getMonth()
     ) {
-      $('.carousel-inner').append(`
+      $('.calendar-carousel').append(`
         <div class="carousel-item active">
           <div class="card calendar-card mx-auto active" id=${id}>
             <div class="card-body calendar-card-body p-0 text-center">
@@ -27,7 +29,7 @@ function calendarDay() {
         </div>
       `);
     } else {
-      $('.carousel-inner').append(`
+      $('.calendar-carousel').append(`
         <div class="carousel-item">
           <div class="card calendar-card mx-auto" id=${id}>
             <div class="card-body calendar-card-body p-0 text-center">

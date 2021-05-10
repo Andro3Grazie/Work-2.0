@@ -1,9 +1,8 @@
 function getTodayShift() {
   var giorniLavorativi = 0;
 
-  let dayLong = new Date();
-
-  dayLong.setDate(today.getDate()); // Set the date
+  let dayLong = new Date(today);
+  // dayLong.setDate(today.getDate()); // Set the date
 
   while (
     dayLong.getDate() >= primoGiorno.getDate() &&
@@ -38,4 +37,15 @@ function getShift() {
       return response.json();
     })
     .then((data) => $('#todayShift').html(data[getTodayShift() - 1].name));
+}
+
+function carouselShift(val) {
+  $('.result').hide();
+  today.setDate(today.getDate() + val);
+  // today = new Date(dayLong);
+
+  calendarDay();
+  getShift();
+  calendarChanges();
+  // $('#home-icon').click();
 }

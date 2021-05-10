@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="src/style/my-search-page.css" />
     <link rel="stylesheet" href="src/style/live-search.css" />
     <link rel="stylesheet" href="src/style/result.css" />
+    <link rel="stylesheet" href="src/style/manualShift.css">
 
     <!-- Favicon -->
     <link
@@ -46,6 +47,7 @@
       href="src/favicon/favicon.png"
       type="image/x-icon"
     />
+
 
     <!-- Title -->
     <title>T&F Moda 2.0</title>
@@ -67,22 +69,72 @@
             </div>
           </div>
           <div
-            class="row p-4 mt-4 d-flex align-content-center"
-            style="height: 144px; max-height: 144px"
-          >
+            class="row no-gutters px-4 pt-4 mt-4 d-flex align-content-center w-100"
+            style="height: 128px; max-height: 128px"
+            >
+            
             <div class="col">
+
               <p id="todayShift" class="mb-0 text-uppercase h2">
                 <!-- Turno dove sono di sosta -->
               </p>
             </div>
           </div>
+
+          <div class="row w-100">
+            <div class="col-6 p-2" onclick="carouselShift(-1);">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="col-6 p-2" onclick="carouselShift(1);">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+
+
+              <!-- <div id="shift-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+
+                    <p id="todayShift" class="mb-0 text-uppercase h2">
+                      Turno dove sono di sosta
+                    </p>
+
+                  </div>
+                  <div class="carousel-item">
+
+                    <p id="todayShift" class="mb-0 text-uppercase h2">
+                      ciao
+                    </p>
+
+                  </div>
+                </div>
+
+                  <a class="carousel-control-prev" href="#shift-carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#shift-carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+              </div>
+            </div>
+          </div> -->
+
           <div class="row">
             <div class="col">
               <div class="card result" style="display: none">
                 <div class="card-body result-body p-3">
                   <!-- Search result -->
+                  <span class="id-nome" style="display: none;">
+                    <!-- Id result for the person who is in the searched place -->
+                  </span>
                   <span class="nome text-capitalize" style="display: none">
                     <!-- Search result for the person who is in the searched place -->
+                  </span>
+                  <span class="id-sosta" style="display: none;">
+                    <!-- Id result for the place where the searched person is -->
                   </span>
                   <span class="sosta text-capitalize" style="display: none">
                     <!-- Search result for the place where the searched person is -->
@@ -101,7 +153,7 @@
         data-ride="carousel"
         data-interval="false"
       >
-        <div class="carousel-inner">
+        <div class="carousel-inner calendar-carousel">
           <!-- Calendar will be generated -->
         </div>
         <!-- ./Carousel-inner -->
@@ -121,6 +173,59 @@
       <!-- ./Calendar -->
     </div>
     <!-- ./Home-page section -->
+
+    <!-- Manual shift page -->
+    <div class="manualShift-page" style="display: none">
+      <div class="manualShift-box container p-0">
+        <div class="row p-0 m-auto">
+          <div class="col p-0 m-auto">
+            <div class="input-group manualShift-logo">
+              <div class="input-group-prepend">
+                <div
+                  class="input-group-text manualShift-text"
+                  id="manualShift-arrow"
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </div>
+              </div>
+              <input type="text" class="form-control manualShift-bar" />
+              <div
+                class="input-group-append manualShift-delete"
+                style="display: none"
+              >
+                <div
+                  class="input-group-text manualShift-text"
+                  id="manualShift-x"
+                >
+                  <i class="fas fa-times"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Live search result -->
+      <div
+        class="container manualShift-container mb-3 px-2"
+        style="display: none"
+      >
+      </div>
+      <!-- ./Live search result -->
+
+      <!-- Typed palces -->
+      <div class="container manualShift-typed-container">
+
+        <div class="row mt-3">
+          <div class="col text-center">
+            <span class="manualShift-typed h5">
+              <!-- Show places typed animation -->
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- ./Typed palces -->
+    </div>
+    <!-- ./Manual shift page -->
 
     <!-- Container for the search page section -->
     <div class="search-page" style="display: none">
@@ -251,7 +356,7 @@
         <!-- live search result -->
       </div>
 
-      <div class="container my-search-history" style="display: none">
+      <!-- <div class="container my-search-history" style="display: none">
         <div class="row mb-1">
           <div class="col">
             <span class="history-title">Ricerche recenti</span>
@@ -277,9 +382,38 @@
             <span class="history-subtitle">Cancella ricerche recenti</span>
           </div>
         </div>
+      </div> -->
+
+      <!-- Multiple search -->
+      <div class="container my-search-history" style="display: none">
+        <div class="row mb-1">
+          <div class="col">
+            <span class="history-title">Risultati ricerca multipla</span>
+          </div>
+        </div>
+        <div class="row no-gutters history-element mt-2">
+          <div class="col-auto my-auto">
+            <div class="history-element-id text-center p-2">10</div>
+          </div>
+          <div class="col-9 m-auto pl-1 marquee">
+            <h5 class="history-element-title text-capitalize py-1 marquee-text">
+              di cori sett/ amin shaim
+            </h5>
+            <p class="history-element-subtitle">Nominativo</p>
+          </div>
+          <div class="col-auto m-auto text-center">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col">
+            <span class="history-subtitle">Cancella ricerca</span>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- ./My-search-page section -->
+    <!-- ./Multiple search section -->
 
     <!-- Footer -->
     <footer class="footer fixed-bottom mb-4 mx-4">
@@ -302,6 +436,10 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Typed animation -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
     <!-- Custom JS -->
     <script src="src/scripts/var.js"></script>
     <script src="src/scripts/getEaster.js"></script>
@@ -316,5 +454,6 @@
     <script src="src/scripts/live-search.js"></script>
     <script src="src/scripts/search-result.js"></script>
     <script src="src/scripts/search-page.js"></script>
+    <script src="src/scripts/setManualShift.js"></script>
   </body>
 </html>
