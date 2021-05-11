@@ -34,10 +34,13 @@ $('#home-icon').click(function () {
 
 $('.search-logo').click(function () {
   openMySearch();
+  $('.live-search-container').show();
+  $('#search-icon').data('clicks', clicks); // -> Reset click
 });
 
 $('#search-icon').click(function () {
-  var clicks = $(this).data('clicks');
+  clicks = $(this).data('clicks');
+
   // First clicks -> Open search page
   $('.home-page').hide();
   $('.search-page').show();
@@ -46,7 +49,7 @@ $('#search-icon').click(function () {
   $('.live-search-container').hide();
   $('.manualShift-page').hide();
 
-  if (clicks) {
+  if (clicks && $('.search-page').is(':visible')) {
     // Second Click -> Open search bar
     $('.single-page').hide();
     if ($('.my-search-bar').val() != '') $('.live-search-container').show();

@@ -43,3 +43,4 @@ const primoGiorno = new Date(2021, 3, 1); // Formato -> aaaa, mm, gg (mm: starts
 let soste;
 let nomi;
 let winHeight = 0;
+var clicks;
