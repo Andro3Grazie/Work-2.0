@@ -55,3 +55,23 @@
 .manualShift-typed-container {
   color: rgba(var(--on-light-BG));
 }
+#todayShift {
+  cursor: pointer;
+}
+#todayShift:hover {
+  opacity: 0.8;
+}
+
+/* text */
+.manualShift-today,
+.manualShift-arrow {
+  color: rgba(var(--text));
+  cursor: pointer;
+}
+.manualShift-today {
+  font-size: large;
+}
+.manualShift-today:hover,
+.manualShift-arrow:hover {
+  opacity: 0.8;
+}

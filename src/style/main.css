@@ -21,6 +21,12 @@
 
   /* Use this color when the theme have a conflict */
   --on-light-BG: 19, 52, 76;
+
+  /* Modal BG */
+  --modal-BG: 255, 255, 255;
+
+  /* Error messages */
+  --error: 255, 0, 0;
 }
 
 .dark-theme {
@@ -43,6 +49,9 @@
 
   /* Use this color when the theme have a conflict */
   --on-light-BG: 255, 255, 255;
+
+  /* Modal BG */
+  --modal-BG: 54, 54, 54;
 }
 
 body {

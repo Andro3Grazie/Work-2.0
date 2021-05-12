@@ -1,0 +1,58 @@
+#date-modal .modal-content {
+  background: rgba(var(--modal-BG));
+
+  color: rgba(var(--on-light-BG));
+}
+#date-modal button {
+  color: rgba(var(--on-light-BG));
+}
+
+#date-modal .form-control {
+  background: rgba(var(--text));
+
+  color: rgba(var(--primary-color));
+}
+#date-modal .form-control:focus {
+  box-shadow: 0px 0px 8px rgba(var(--primary-color), 0.5);
+  border-color: rgba(var(--primary-color), 0.5);
+}
+
+#date-modal .modal-title {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+#date-modal .modal-header,
+#date-modal .modal-footer {
+  border: none;
+}
+#date-modal .modal-header {
+  padding-bottom: 0.75rem;
+}
+#date-modal .modal-footer {
+  justify-content: space-around;
+  padding-top: 0;
+}
+
+#date-modal .btn-send {
+  background: rgba(var(--primary-color));
+  box-shadow: 0px 0px 10px rgba(var(--primary-color), 0.5);
+
+  color: rgba(var(--text));
+}
+#date-modal .btn-canc {
+  background: rgba(var(--modal-BG));
+  box-shadow: 0px 2px 3px rgba(var(--primary-color), 0.5);
+
+  color: rgba(var(--on-light-BG));
+}
+
+.error-message {
+  color: rgba(var(--error));
+  font-size: 14px;
+  font-weight: 400;
+}
+.error {
+  border: 1px solid rgba(var(--error));
+  color: rgba(var(--error)) !important;
+}

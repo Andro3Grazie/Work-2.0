@@ -66,6 +66,15 @@
   /* color: rgba(var(--text)); */
   opacity: 0.8;
 }
+.calendar-today {
+  color: rgba(var(--on-light-BG));
+  cursor: pointer;
+}
+.calendar-today:hover {
+  opacity: 0.8;
+}
+
+/* footer */
 .footer .container {
   background: linear-gradient(
       0deg,

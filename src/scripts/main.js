@@ -95,3 +95,7 @@ window.addEventListener('resize', () => {
     $('.footer').hide();
   } else $('.footer').fadeIn();
 });
+
+setInterval(() => {
+  $('.wip-emoji').fadeIn('slow');
+}, 10000);

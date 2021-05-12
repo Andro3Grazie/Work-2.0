@@ -52,3 +52,15 @@ function calendarDay() {
 $('.carousel').carousel({
   wrap: false,
 });
+
+$('.calendar-today').click(() => {
+  setToday();
+});
+
+function setToday() {
+  today = new Date();
+
+  calendarDay();
+  getShift();
+  calendarChanges();
+}
