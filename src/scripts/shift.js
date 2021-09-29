@@ -27,8 +27,17 @@ function getTodayShift() {
     dayLong.setDate(dayLong.getDate() - 1);
   }
   let result = primaSosta - 1 + giorniLavorativi;
-  if (result > 95) result -= 95;
-  else if (result < 0) result += 95;
+  
+    if (result > 95) {
+    while (result > 95) {
+      result -= 95;
+    }
+  }
+  else if (result < 0) {
+    while (result < 0) {
+      result += 95;
+    }
+  }
 
   return result;
 }
