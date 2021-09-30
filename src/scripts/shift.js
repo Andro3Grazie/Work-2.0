@@ -28,7 +28,7 @@ function getTodayShift() {
   }
   let result = primaSosta - 1 + giorniLavorativi;
   
-    if (result > 95) {
+  if (result > 95) {
     while (result > 95) {
       result -= 95;
     }

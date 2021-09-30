@@ -1,0 +1,7 @@
+id = nome della sosta / del nominativo (tutto minuscolo e formattato)
+
+
+TO DO:
+
+- Save the id so it can be used to add it in the search page
+- Divide from recent search and saved one (Saved -> do not last, instead the searced as a expire date of a week e.g.)

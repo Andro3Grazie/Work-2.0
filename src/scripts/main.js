@@ -9,6 +9,8 @@ getShift();
 getSoste();
 getNomi();
 
+// checkSavedElements();
+
 var lastScrollTop = 0;
 $(window).scroll(function (event) {
   var st = $(this).scrollTop();

@@ -29,8 +29,15 @@ function search() {
       val != ''
     ) {
       noResult = false;
+      let savedElements = checkSavedElements();
+      if (!savedElements) { // Se c'è qualcosa nei cookie
+        for (let x = 0; x < savedElements.length; x++) {
+          $('#' + savedElements[x]).children().removeClass('far').addClass('fas');
+        }
+      }
+
       $('.live-search-container').append(`
-        <div class="row no-gutters live-search mt-2" id="${soste[i]['name']}">
+        <div class="row no-gutters live-search mt-2">
           <div class="col-auto my-auto" onclick='getResult("sosta", ${
             soste[i]['id']
           })'>
@@ -46,7 +53,7 @@ function search() {
             </h5>
             <p class="live-search-subtitle">Sosta</p>
           </div>
-          <div class="col-auto m-auto text-center" onclick>
+          <div class="col-auto m-auto text-center" id="${"s_" + soste[i]['id']}" onclick='addCookie(${soste[i]['id']}, "s")'>
             <i class="far fa-heart"></i>
           </div>
         </div>
@@ -69,8 +76,15 @@ function search() {
       val != ''
     ) {
       noResult = false;
+      let savedElements = checkSavedElements();
+      if (savedElements[0] != '') { // Se c'è qualcosa nei cookie
+        for (let x = 0; x < savedElements.length; x++) {
+          $('#' + savedElements[x]).children().removeClass('far').addClass('fas');
+        }
+      }
+          
       $('.live-search-container').append(`
-        <div class="row no-gutters live-search mt-2" id="${nomi[i]['name']}">
+        <div class="row no-gutters live-search mt-2">
           <div class="col-auto my-auto" onclick='getResult("nome", ${
             nomi[i]['id']
           })'>
@@ -86,7 +100,7 @@ function search() {
             </h5>
             <p class="live-search-subtitle">Nominativo</p>
           </div>
-          <div class="col-auto m-auto text-center" onclick>
+          <div class="col-auto m-auto text-center" id="${"n_" + nomi[i]['id']}" onclick='addCookie(${nomi[i]['id']}, "n")'>
             <i class="far fa-heart"></i>
           </div>
         </div>

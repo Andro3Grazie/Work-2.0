@@ -126,3 +126,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.history-noResult {
+  color: rgba(var(--on-light-BG));
+}
