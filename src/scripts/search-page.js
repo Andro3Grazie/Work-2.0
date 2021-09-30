@@ -6,6 +6,9 @@ function getList(val) {
   else if (val == 'sosta') {
     title = "Soste";
   }
+  else {
+    title = "Preferiti"
+  }
   $('.search-page').hide();
   $('.single-page').show().html(`
     <div class="row">
