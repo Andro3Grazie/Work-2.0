@@ -44,6 +44,7 @@ function deleteSearchedTerm(val) {
 
     searchedTerms = getCookie('recentSearchedTerms').split(',');
 
+    getRecentSearchItems();
     if (searchedTerms[0] == ['']) {
         $('.my-search-history').hide();
     }
