@@ -61,4 +61,5 @@ function getResult(val, id) {
   }
 
   $('#home-icon').click();
+
 }

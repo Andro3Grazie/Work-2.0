@@ -1,6 +1,8 @@
 $('.my-search-bar').bind('click keyup', function () {
   // live search
   search();
+
+  recentSearchedTerms = $('.my-search-bar').val().toLowerCase().replace(/\s+/g, ' ').trim();
 });
 
 function search() {
@@ -109,7 +111,11 @@ function search() {
   }
 
   if (val == '') {
-    $('.my-search-history').show();
+    let oldSearchedTerms = getCookie('recentSearchedTerms').split(',');
+    if (oldSearchedTerms[0] != '') {
+      $('.my-search-history').show();
+      getRecentSearchItems();
+    }
   }
 
   if (noResult && val != '') {
@@ -121,5 +127,21 @@ function search() {
         </div>
       </div>
     `);
+  }
+}
+
+function getSearchedTerm() {
+  // Aggiungere ai cookie la parola cercata
+  let recentSearchedTerms = $('.my-search-bar').val().toLowerCase().replace(/\s+/g, ' ').trim();
+  let oldSearchedTerms = getCookie('recentSearchedTerms').split(',');
+
+  // Se non è vuoto ed è più lungo di 2 caratteri e non è già presente :)
+  if (recentSearchedTerms.length > 2 && !(oldSearchedTerms.includes(recentSearchedTerms))) {
+    if (getCookie('recentSearchedTerms') == false) {
+      setCookie('recentSearchedTerms', recentSearchedTerms, 30);
+    }
+    else {
+      updateCookie('recentSearchedTerms', recentSearchedTerms, 30);
+    }
   }
 }

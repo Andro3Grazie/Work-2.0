@@ -6,6 +6,7 @@ $('.my-search-bar').focusout(function () {
 
     $(this).hide();
   }
+  getSearchedTerm();
 });
 $('.my-search-bar').focusin(function () {
   $('.my-search-logo-text').show();
@@ -19,7 +20,13 @@ function openMySearch() {
   $('.search-page').hide();
   $('.my-search-page').show();
   $('.my-search-bar').show().focus();
-  if ($('.my-search-bar').val() == '') $('.my-search-history').show();
+  if ($('.my-search-bar').val() == '') {
+    let oldSearchedTerms = getCookie('recentSearchedTerms').split(',');
+    if (oldSearchedTerms[0] != '') {
+      $('.my-search-history').show();
+      getRecentSearchItems();
+    }
+  }
 }
 
 $('.my-search-placeholder').click(function () {
@@ -38,20 +45,26 @@ $('.my-search-bar').bind('click keyup', function () {
 $('.my-search-logo-delete').click(function () {
   $('.my-search-bar').val('').focus();
   $('.live-search-container').html('').hide();
-  $('.my-search-history').show();
+  let oldSearchedTerms = getCookie('recentSearchedTerms').split(',');
+  if (oldSearchedTerms[0] != '') {
+    $('.my-search-history').show();
+    getRecentSearchItems();
+  }
 });
 $('#my-search-arrow').click(function () {
   $('.my-search-bar').val('').focusout();
-  $('.my-search-history').show();
+  let oldSearchedTerms = getCookie('recentSearchedTerms').split(',');
+  if (oldSearchedTerms[0] != '') {
+    $('.my-search-history').show();
+    getRecentSearchItems();
+  }
   $('.live-search-container').html('').hide();
 });
 
 
 
-// If on prod won't work copy the code insiede the html elemnt on live-search.js page
 function addCookie(id, type) {
 
-  console.log('ciao');
 
   let itm = type + "_" + id;
 

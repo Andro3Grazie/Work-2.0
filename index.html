@@ -311,42 +311,29 @@
   <div class="container my-search-history" style="display: none">
 
     <!-- Title -->
-    <!-- <div class="row mb-1">
+    <div class="row mb-1">
       <div class="col">
         <span class="history-title">Ricerche recenti</span>
       </div>
-    </div> -->
+    </div>
 
-    <!-- Saved elements items -->
-    <!-- <div class="row no-gutters history-element mt-2">
-      <div class="col-auto my-auto">
-        <div class="history-element-id text-center p-2">10</div>
-      </div>
-      <div class="col-9 m-auto pl-1 marquee">
-        <h5 class="history-element-title text-capitalize py-1 marquee-text">
-          di cori sett/ amin shaim
-        </h5>
-        <p class="history-element-subtitle">Nominativo</p>
-      </div>
-      <div class="col-auto m-auto text-center">
-        <i class="fas fa-times"></i>
-      </div>
-    </div> -->
-    <!-- ./Saved elements items -->
+
+    <!-- Recent searched items -->
+    <div class="container m-0 p-0 history"></div>
 
     <!-- Delete saved elements -->
-    <!-- <div class="row mt-4">
+    <div class="row mt-4 history-deleteButton">
       <div class="col">
-        <span class="history-subtitle">Cancella ricerche recenti</span>
+        <span class="history-subtitle" onclick="deleteAllSearchedTerms();">Cancella ricerche recenti</span>
       </div>
-    </div> -->
+    </div>
     <!-- ./Delete saved elements -->
 
   </div>
   <!-- ./Saved elements page -->
 
   <!-- Multiple search -->
-  <div class="container my-search-history" style="display: none">
+  <!-- <div class="container my-search-history" style="display: none">
 
     <div class="wip-page" style="color: rgba(var(--on-light-BG));">
 
@@ -358,7 +345,7 @@
       </div>
     </div>
 
-  </div>
+  </div> -->
   <!-- ./Multiple search section -->
 
   <!-- Footer -->
@@ -397,6 +384,7 @@
   <script src="src/scripts/search-page.js"></script>
   <script src="src/scripts/setManualShift.js"></script>
   <script src="src/scripts/anchor.js"></script>
+  <script src="src/scripts/my-search-history.js"></script>
 </body>
 
 </html>
