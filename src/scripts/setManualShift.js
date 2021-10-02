@@ -1,11 +1,11 @@
-$('#todayShift').click(function () {
-  openManualShiftSearch();
+// $('#todayShift').click(function () {
+//   openManualShiftSearch();
 
-  $('.manualShift-bar').bind('click keyup', function () {
-    // live search
-    searchManualPlace();
-  });
-});
+//   $('.manualShift-bar').bind('click keyup', function () {
+//     // live search
+//     searchManualPlace();
+//   });
+// });
 
 function openManualShiftSearch() {
   $('.home-page').hide();
@@ -45,9 +45,8 @@ function searchManualPlace() {
     ) {
       noResult = false;
       $('.manualShift-container').append(`
-      <div class="row no-gutters manualShift-live-search mt-2" onclick="setManualPlace('${
-        soste[i].name
-      }')">
+      <div class="row no-gutters manualShift-live-search mt-2" onclick="setManualPlace('${soste[i].name
+        }')">
         <div class="col-auto my-auto" >
           <div class="manualShift-live-search-id text-center p-2">
           ${('0' + soste[i]['id']).slice(-2)}
@@ -67,8 +66,47 @@ function searchManualPlace() {
   }
 
   if (noResult && val != '') {
+
+    val = $('.manualShift-bar').val().replace(/\s+/g, ' ').trim();
+
+    const options = {
+      isCaseSensitive: false,
+      includeScore: true,
+      includeMatches: true,
+      shouldSort: true,
+      threshold: 0.4,
+      // ignoreLocation: true,
+      ignoreFieldNorm: true,
+      keys: [
+        "name"
+      ]
+    };
+
+    const fuseSosteM = new Fuse(soste, options);
+
+    let sostaPossibile = {
+      name: '',
+      score: 0
+    };
+
+    if (fuseSosteM.search(val).length > 0) {
+
+      let possibleSearched = fuseSosteM.search(val)[0].item.name.split(' ', 2);
+      
+      if (possibleSearched[0] != '') {
+        
+        $('.manualShift-container').append(`
+        
+        <div class="row no-gutters mt-3" style="overflow-wrap: break-word;">
+        
+        <p class="m-0 mt-2">Forse cercavi: <strong onclick="secondAttemptManSearch('${possibleSearched[0]}')">${possibleSearched[0]}</strong>?</p>
+        
+        </div> 
+        `)
+      }
+    }
     $('.manualShift-container').append(`
-      <div class="row no-gutters mt-5" style="overflow-wrap: break-word;">
+      <div class="row no-gutters mt-4" style="overflow-wrap: break-word;">
         <div class="col text-center">
           <h5 class="m-0">Impossibile trovare "${zero ? '0' + val : val}"</h5>
           <p class="m-0 mt-2">Prova a cercare nuovamente inserendo altre parole o in un ordine diverso</p>
@@ -77,6 +115,12 @@ function searchManualPlace() {
     `);
   }
 }
+function secondAttemptManSearch(val) {
+  $('.manualShift-bar').val(val);
+  openManualShiftSearch();
+  searchManualPlace();
+}
+
 function setManualPlace(place) {
   $('.result').hide();
 

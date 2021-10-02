@@ -120,8 +120,67 @@ function search() {
 
   if (noResult && val != '') {
     val = $('.my-search-bar').val().replace(/\s+/g, ' ').trim();
+
+    const options = {
+      isCaseSensitive: false,
+      includeScore: true,
+      includeMatches: true,
+      shouldSort: true,
+      threshold: 0.4,
+      // ignoreLocation: true,
+      ignoreFieldNorm: true,
+      keys: [
+        "name"
+      ]
+    };
+
+    const fuseSoste = new Fuse(soste, options);
+    const fuseNomi = new Fuse(nomi, options);
+
+    let nomePossibile = {
+      name: '',
+      score: 0
+    };
+    
+    let sostaPossibile = {
+      name: '',
+      score: 0
+    };
+
+
+    if (fuseNomi.search(val).length > 0) {
+      nomePossibile.name = fuseNomi.search(val)[0].item.name;
+      nomePossibile.score = fuseNomi.search(val)[0].score;      
+    }
+
+    if (fuseSoste.search(val).length > 0) {
+      sostaPossibile.name = fuseSoste.search(val)[0].item.name;
+      sostaPossibile.score = fuseSoste.search(val)[0].score;
+    }
+
+
+    let possibleSearched;
+    if (sostaPossibile.score < nomePossibile.score) {
+      possibleSearched = sostaPossibile.name.split(' ', 2);
+    }
+    else {
+      possibleSearched = nomePossibile.name.split(' ', 2);
+    }
+
+    if (possibleSearched[0] != '') {
+
+      $('.live-search-container').append(`
+      
+        <div class="row no-gutters mt-3" style="overflow-wrap: break-word;">
+        
+          <p class="m-0 mt-2">Forse cercavi: <strong onclick="repeatOldSearch('${possibleSearched[0]}')">${possibleSearched[0]}</strong>?</p>
+        
+        </div> 
+      `) 
+    }
     $('.live-search-container').append(`
-      <div class="row no-gutters mt-5" style="overflow-wrap: break-word;">
+
+      <div class="row no-gutters mt-4" style="overflow-wrap: break-word;">
         <div class="col text-center">
           <h5 class="m-0">Impossibile trovare "${zero ? '0' + val : val}"</h5>
           <p class="m-0 mt-2">Prova a cercare nuovamente inserendo altre parole o in un ordine diverso</p>
