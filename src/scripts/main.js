@@ -3,6 +3,9 @@ $(document).ready(function () {
   if (getCookie('theme') == 'dark') toggleTheme();
 
   winHeight = $(window).height();
+
+  setAnchor('homepage');
+
 });
 calendarDay();
 getShift();
@@ -25,6 +28,9 @@ $(window).scroll(function (event) {
 });
 
 $('#home-icon').click(function () {
+
+  setAnchor('homepage');
+  
   $('.home-page').fadeIn();
   $('.search-page').hide();
   $('.my-search-page').hide();
@@ -38,10 +44,13 @@ $('.search-logo').click(function () {
   openMySearch();
   $('.live-search-container').show();
   $('#search-icon').data('clicks', clicks); // -> Reset click
+  setAnchor('livesearchpage');
 });
 
 $('#search-icon').click(function () {
   clicks = $(this).data('clicks');
+
+  setAnchor('searchpage');
 
   // First clicks -> Open search page
   $('.home-page').hide();
