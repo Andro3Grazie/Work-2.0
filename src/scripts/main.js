@@ -44,7 +44,9 @@ $('.search-logo').click(function () {
   openMySearch();
   $('.live-search-container').show();
   $('#search-icon').data('clicks', clicks); // -> Reset click
+  
   setAnchor('livesearchpage');
+
 });
 
 $('#search-icon').click(function () {
@@ -62,6 +64,8 @@ $('#search-icon').click(function () {
 
   if (clicks && $('.search-page').is(':visible')) {
     // Second Click -> Open search bar
+    setAnchor('livesearchpage');
+
     $('.single-page').hide();
     if ($('.my-search-bar').val() != '') $('.live-search-container').show();
     openMySearch();

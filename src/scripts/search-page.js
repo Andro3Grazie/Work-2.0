@@ -1,4 +1,7 @@
 function getList(val) {
+
+  setAnchor(val);
+
   let title;
   if (val == 'nome') {
     title = "Nominativi";
