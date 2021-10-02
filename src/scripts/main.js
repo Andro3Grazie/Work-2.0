@@ -101,3 +101,9 @@ window.addEventListener('resize', () => {
 setInterval(() => {
   $('.wip-emoji').fadeIn('slow');
 }, 10000);
+
+
+function replaceSpecialChar(id) {
+  // return "#" + id.replace( /(:|\.|\[|\]|,|=|@)/g, "\\$1" );
+  return "#" + id.replace(/^[^a-z]+|[^\w:.-]+/gi, '\\$1');
+}

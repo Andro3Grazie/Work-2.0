@@ -14,7 +14,7 @@ function getRecentSearchItems() {
         <div class="row no-gutters history-element card mt-2" id='${searchedTerms[i]}'>
         
             <div class="col card-body px-3 d-flex justify-content-between">
-                <p class="card-text m-0 p-0">${searchedTerms[i]}</p>
+                <p class="card-text m-0 p-0" onclick="repeatOldSearch('${searchedTerms[i]}')">${searchedTerms[i]}</p>
                 
                 <div class="history-element-closingButton" onclick="deleteSearchedTerm('${searchedTerms[i]}');">
                     <i class="fas fa-times"></i>
@@ -40,7 +40,9 @@ function deleteSearchedTerm(val) {
             updateCookie('recentSearchedTerms', searchedTerms[i], 30); 
         }
     }
-    $('#' + val).html('');
+
+    // $('[id=' + val + ']').html('');
+    $(replaceSpecialChar(val)).html('');
 
     searchedTerms = getCookie('recentSearchedTerms').split(',');
 
@@ -50,3 +52,24 @@ function deleteSearchedTerm(val) {
     }
 }
 
+function repeatOldSearch(val) {
+    
+    $('.my-search-bar').val(val);
+    openMySearch();
+    search();
+}
+
+function updateExistingValue(val) {
+
+    deleteSearchedTerm(val);
+    createNewSearchedTerms(val);
+}
+
+function createNewSearchedTerms(val) {
+    if (getCookie('recentSearchedTerms') == false) {
+        setCookie('recentSearchedTerms', val, 30);
+    }
+    else {
+        updateCookie('recentSearchedTerms', val, 30);
+    }
+}

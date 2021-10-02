@@ -2,7 +2,7 @@ $('.my-search-bar').bind('click keyup', function () {
   // live search
   search();
 
-  recentSearchedTerms = $('.my-search-bar').val().toLowerCase().replace(/\s+/g, ' ').trim();
+  // recentSearchedTerms = $('.my-search-bar').val()().replace(/\s+/g, ' ').trim();
 });
 
 function search() {
@@ -119,6 +119,7 @@ function search() {
   }
 
   if (noResult && val != '') {
+    val = $('.my-search-bar').val().replace(/\s+/g, ' ').trim();
     $('.live-search-container').append(`
       <div class="row no-gutters mt-5" style="overflow-wrap: break-word;">
         <div class="col text-center">
@@ -132,16 +133,19 @@ function search() {
 
 function getSearchedTerm() {
   // Aggiungere ai cookie la parola cercata
-  let recentSearchedTerms = $('.my-search-bar').val().toLowerCase().replace(/\s+/g, ' ').trim();
-  let oldSearchedTerms = getCookie('recentSearchedTerms').split(',');
+  let recentSearchedTerms = $('.my-search-bar').val().replace(/\s\s+|[,;]\s+?|[,;]/gm, ' ').trim();
 
-  // Se non è vuoto ed è più lungo di 2 caratteri e non è già presente :)
-  if (recentSearchedTerms.length > 2 && !(oldSearchedTerms.includes(recentSearchedTerms))) {
-    if (getCookie('recentSearchedTerms') == false) {
-      setCookie('recentSearchedTerms', recentSearchedTerms, 30);
-    }
-    else {
-      updateCookie('recentSearchedTerms', recentSearchedTerms, 30);
+  let oldSearchedTerms = getCookie('recentSearchedTerms').split(',');
+  
+
+  // Se non è vuoto ed è più lungo di 2 caratteri
+  if (recentSearchedTerms.length > 2) {
+    // Crea un nuovo cookie o aggiungi la ricerca a quello esistente
+    createNewSearchedTerms(recentSearchedTerms);
+    
+    // Se esiste già all'interno mettilo come ultimo nella lista (perché cercato di nuovo)
+    if ((oldSearchedTerms.includes(recentSearchedTerms))) {
+      updateExistingValue(recentSearchedTerms);
     }
   }
 }

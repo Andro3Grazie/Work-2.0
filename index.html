@@ -312,7 +312,8 @@
 
     <!-- Title -->
     <div class="row mb-1">
-      <div class="col">
+      <div class="col d-flex align-items-center">
+        <span class="history-info mr-2" data-toggle="tooltip" title="Le virgole e i punti e virgola utilizzati durante le ricerche non verra memorizzati!"><i class="fas fa-info-circle"></i></span>
         <span class="history-title">Ricerche recenti</span>
       </div>
     </div>
@@ -385,6 +386,12 @@
   <script src="src/scripts/setManualShift.js"></script>
   <script src="src/scripts/anchor.js"></script>
   <script src="src/scripts/my-search-history.js"></script>
+
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 </body>
 
 </html>

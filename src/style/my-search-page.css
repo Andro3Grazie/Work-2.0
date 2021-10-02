@@ -87,6 +87,13 @@
   /* height: 61px;
   max-height: 61px; */
 }
+
+.history-info {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: rgba(var(--on-light-BG));
+
+}
 /* 
 .history-element-id {
   background-color: rgba(var(--primary-color));
