@@ -213,6 +213,7 @@ $('.manualShift-delete').click(function () {
   $('.manualShift-bar').val('').focus().css({'text-align': 'left', 'font-weight': "400"}).removeClass('manualShift-live-search-title text-capitalize');
   $('.manualShift-container').html('').hide();
   $('.manualShift-history').show();
+  $('.manualShift-typed-container').show()
 });
 $('#manualShift-arrow').click(function () {
   $('#home-icon').click();
