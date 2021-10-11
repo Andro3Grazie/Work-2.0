@@ -1,7 +1,7 @@
 function calendarChanges() {
   $('.calendar-card').click(function () {
     if ($(this).hasClass('active')) {
-      // console.log("set manually date -> don't know how to do it )");
+      
       $('#date-modal').modal('show');
 
       $('#date-modal input').on('input', function () {
@@ -30,6 +30,8 @@ function calendarChanges() {
     $(this).addClass('active');
 
     today = new Date(parseInt($(this).attr('id')));
+
+    // console.log(today);
     // Calculate shift with the given date
     getShift();
   });

@@ -20,6 +20,9 @@
   -o-transition-property: none;
   transition-property: none;
 }
+.manualShift-bar:disabled {
+  background-color: rgba(var(--input-color));
+}
 .manualShift-text,
 .manualShift-bar {
   color: rgba(var(--invert-text));
@@ -74,4 +77,24 @@
 .manualShift-today:hover,
 .manualShift-arrow:hover {
   opacity: 0.8;
+}
+
+
+/* Calendar */
+.when-card {
+  background: linear-gradient(
+      0deg,
+      rgba(var(--fill-color), 0.15),
+      rgba(var(--fill-color), 0.15)
+    ),
+    rgba(var(--primary-color));
+
+  color: rgba(var(--text));
+  opacity: 1;
+}
+.when-cardTitle {
+  border-bottom: 2px solid;
+  border-color: rgba(var(--background-color), 0.65);
+  font-size: 1.4rem;
+  font-weight: 300;
 }

@@ -8,3 +8,12 @@ TO DO:
 
 
 Set manual shift is broken :) -> Disabled by commenting out todayShift.click event listener inside setManulaShift.js page
+
+
+sistemare le date per il calcolo del turno (sosta), senza anno si bugga :)
+
+
+le feste vanno a prescindere dall'anno, invece pasqua e pasquetta sono direttamente collegate all'anno 
+
+
+cambiare il sistema di controllo del turno, se l'anno per cui si sta calcolando la sosta ricalcola pasqua e pasquetta :checked: 

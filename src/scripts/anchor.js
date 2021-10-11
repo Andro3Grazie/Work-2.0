@@ -1,5 +1,8 @@
 function setAnchor(pageName) {
-  history.pushState(null, '', '?=' + pageName);
+
+  let url = window.location.href.split('?=', 2)[1];
+
+  if (pageName != url) history.pushState(null, '', '?=' + pageName);
 }
 window.addEventListener('popstate', function (event) {
   let newUrl = window.location.href.split('?=', 2)[1];
@@ -13,6 +16,7 @@ window.addEventListener('popstate', function (event) {
     $('.my-search-history').hide();
     $('.live-search-container').hide();
     $('.manualShift-page').hide();
+    $('.single-page').hide();
 
     $('.single-page').hide();
     if ($('.my-search-bar').val() != '') $('.live-search-container').show();
@@ -24,8 +28,12 @@ window.addEventListener('popstate', function (event) {
     $('.my-search-page').hide();
     $('.my-search-history').hide();
     $('.live-search-container').hide();
-    $('.single-page').hide();
     $('.manualShift-page').hide();
+    $('.single-page').hide();
+
+    // hide keyboard
+    $('.manualShift-bar').focusout();
+    $('.my-search-bar').focusout();
   }
   if (newUrl == 'searchpage') {
     $('.home-page').hide();
@@ -34,6 +42,11 @@ window.addEventListener('popstate', function (event) {
     $('.my-search-history').hide();
     $('.live-search-container').hide();
     $('.manualShift-page').hide();
+    $('.single-page').hide();
+
+    // hide keyboard
+    $('.manualShift-bar').focusout();
+    $('.my-search-bar').focusout();
   }
   if (newUrl == 'preferiti') {
     getList('preferiti');
@@ -44,5 +57,13 @@ window.addEventListener('popstate', function (event) {
   }
   if (newUrl == 'nominativi') {
     getList('nome');
+  }
+  if (newUrl == 'manualshift') {
+    openManualShiftSearch(); // Comprende: home-page.hide e manualShift-page.show :)
+    $('.search-page').hide();
+    $('.my-search-page').hide();
+    $('.my-search-history').hide();
+    $('.live-search-container').hide();    
+    $('.single-page').hide();
   }
 });

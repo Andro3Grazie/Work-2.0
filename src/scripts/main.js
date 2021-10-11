@@ -43,7 +43,9 @@ $('#home-icon').click(function () {
 $('.search-logo').click(function () {
   openMySearch();
   $('.live-search-container').show();
+  clicks = false;
   $('#search-icon').data('clicks', clicks); // -> Reset click
+  console.log(clicks);
   
   setAnchor('livesearchpage');
 
