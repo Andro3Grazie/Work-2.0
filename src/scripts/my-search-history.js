@@ -1,10 +1,15 @@
 
 function getRecentSearchItems() {
 
+    $('.no-recent-search').fadeIn('slow');
 
     $('.history').html('');
 
     let searchedTerms = getCookie('recentSearchedTerms').split(',');
+
+    if (searchedTerms[0] != ['']) {
+        $('.no-recent-search').hide();
+    }
 
     let k = 0;
     
@@ -29,6 +34,7 @@ function getRecentSearchItems() {
 function deleteAllSearchedTerms() {
     deleteCookie('recentSearchedTerms');
     $('.my-search-history').hide();
+    $('.no-recent-search').fadeIn('slow');
 }
 
 function deleteSearchedTerm(val) {
@@ -49,6 +55,7 @@ function deleteSearchedTerm(val) {
     getRecentSearchItems();
     if (searchedTerms[0] == ['']) {
         $('.my-search-history').hide();
+        $('.no-recent-search').fadeIn('slow');
     }
 }
 

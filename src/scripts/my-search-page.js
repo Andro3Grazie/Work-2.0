@@ -25,6 +25,8 @@ function openMySearch() {
     if (oldSearchedTerms[0] != '') {
       $('.my-search-history').show();
       getRecentSearchItems();
+    } else {
+      $('.no-recent-search').fadeIn('slow');
     }
   }
 }
@@ -49,6 +51,8 @@ $('.my-search-logo-delete').click(function () {
   if (oldSearchedTerms[0] != '') {
     $('.my-search-history').show();
     getRecentSearchItems();
+  } else {
+    $('.no-recent-search').fadeIn('slow');
   }
 });
 $('#my-search-arrow').click(function () {
@@ -57,6 +61,8 @@ $('#my-search-arrow').click(function () {
   if (oldSearchedTerms[0] != '') {
     $('.my-search-history').show();
     getRecentSearchItems();
+  } else {
+    $('.no-recent-search').fadeIn('slow');
   }
   $('.live-search-container').html('').hide();
 });

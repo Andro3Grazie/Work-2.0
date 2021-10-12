@@ -35,6 +35,7 @@ $('#home-icon').click(function () {
   $('.search-page').hide();
   $('.my-search-page').hide();
   $('.my-search-history').hide();
+  $('.no-recent-search').hide();
   $('.live-search-container').hide();
   $('.single-page').hide();
   $('.manualShift-page').hide();
@@ -45,7 +46,6 @@ $('.search-logo').click(function () {
   $('.live-search-container').show();
   clicks = false;
   $('#search-icon').data('clicks', clicks); // -> Reset click
-  console.log(clicks);
   
   setAnchor('livesearchpage');
 
@@ -61,6 +61,7 @@ $('#search-icon').click(function () {
   $('.search-page').show();
   $('.my-search-page').hide();
   $('.my-search-history').hide();
+  $('.no-recent-search').hide();
   $('.live-search-container').hide();
   $('.manualShift-page').hide();
 
@@ -113,9 +114,9 @@ window.addEventListener('resize', () => {
   } else $('.footer').fadeIn();
 });
 
-setInterval(() => {
-  $('.wip-emoji').fadeIn('slow');
-}, 10000);
+// setInterval(() => {
+//   $('.wip-emoji').fadeIn('slow');
+// }, 10000);
 
 
 function replaceSpecialChar(id) {

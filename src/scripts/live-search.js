@@ -12,6 +12,7 @@ function search() {
 
   let val;
   $('.my-search-history').hide();
+  $('.no-recent-search').hide();
   $('.live-search-container').show().html('');
   let noResult = true;
   let zero = false;
@@ -115,6 +116,8 @@ function search() {
     if (oldSearchedTerms[0] != '') {
       $('.my-search-history').show();
       getRecentSearchItems();
+    } else {
+      $('.no-recent-search').fadeIn('slow');
     }
   }
 
