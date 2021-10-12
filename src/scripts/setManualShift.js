@@ -48,8 +48,8 @@ function searchManualPlace() {
     ) {
       noResult = false;
       $('.manualShift-container').append(`
-      <div class="row no-gutters manualShift-live-search mt-2" onclick="setManualPlace('${soste[i].name
-        }')">
+      <div class="row no-gutters manualShift-live-search mt-2" onclick='setManualPlace("${soste[i].id
+        }")'>
         <div class="col-auto my-auto" >
           <div class="manualShift-live-search-id text-center p-2">
           ${('0' + soste[i]['id']).slice(-2)}
@@ -124,8 +124,10 @@ function secondAttemptManSearch(val) {
   searchManualPlace();
 }
 
-function setManualPlace(place) {
+function setManualPlace(placeId) {
   // $('.result').hide(); // Is some previous searched I made
+
+  let place = soste[placeId - 1].name;
 
   // FE
   $('.manualShift-bar').val(place).css({'text-align': 'center', 'font-weight': "500"}).addClass('manualShift-live-search-title text-capitalize');
@@ -168,7 +170,7 @@ function setManualPlace(place) {
     if (dayLong.getDay() != 0 && !feste.includes(checkDate.substring(0, 5)) && checkDate.substring(0, 5) != pasqua && checkDate.substring(0, 5) != pasquetta) {
       // visto che non è festa controlla se quella sosta l'hai di turno questo giorno
       if (soste[k].name == place) {
-        console.log('Prossima turno a ' + place + ' il ' + dayLong);
+        // console.log('Prossima turno a ' + place + ' il ' + dayLong);
 
         // FE
         $('.manualShift-container').append(`
