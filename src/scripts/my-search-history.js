@@ -1,7 +1,7 @@
 
 function getRecentSearchItems() {
 
-    $('.no-recent-search').fadeIn('slow');
+    // $('.no-recent-search').fadeIn('slow');
 
     $('.history').html('');
 
