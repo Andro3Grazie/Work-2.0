@@ -54,67 +54,6 @@
   --modal-BG: 54, 54, 54;
 }
 
-.pink-theme {
-  /* Primary color */
-  --primary-color: 235, 0, 156;
-
-  /* Secondary color */
-  --secondary-color: 231, 234, 237;
-
-  /* Text color */
-  --text: 255, 255, 255;
-
-  --invert-text: 235, 0, 156;
-
-  /* Mask color */
-  --fill-color: 235, 0, 156;
-
-  /* Background color */
-  --background-color: 255, 255, 255;
-
-  /* Input color */
-  --input-color: 255, 255, 255;
-
-  /* Use this color when the theme have a conflict */
-  --on-light-BG: 235, 0, 156;
-
-  /* Modal BG */
-  --modal-BG: 255, 255, 255;
-
-  /* Error messages */
-  --error: 255, 0, 0;
-
-  /* Darkest: primary = invert = fill = onlight */
-}
-
-.pink-dark-theme {
-  /* Primary color */
-  --primary-color: 38, 2, 28;
-
-  /* Secondary color */
-  --secondary-color: 230, 115, 159;
-
-  /* Text color */
-  --text: 248, 242, 246;
-
-  --invert-text: 38, 2, 28;
-
-  /* Mask color */
-  --fill-color: 248, 242, 246;
-
-  /* Background color */
-  --background-color: 38, 2, 28;
-
-  /* Use this color when the theme have a conflict */
-  --on-light-BG: 248, 242, 246;
-
-  /* Modal BG */
-  --modal-BG: 72, 7, 54;
-
-  /* Error messages */
-  --error: 255, 0, 0;
-}
-
 body {
   background: linear-gradient(
       0deg,
@@ -125,15 +64,3 @@ body {
 
   color: rgba(var(--text));
 }
-
-/* GENERAL INFO */
-  /* Darkest: 38, 2, 28 */
-  /* Dark: 72, 7, 54 */
-  /* Light: 230, 115, 159 */
-  /* Lightest: 248, 242, 246 */
-
-  /* For dark BG */
-  /* primary (dark) = invert = background */
-  /* secondary (--dark)(+light) */
-  /* text (light) = fill = on light*/
-  /* modal (-dark) */

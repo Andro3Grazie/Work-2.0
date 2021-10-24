@@ -17,17 +17,3 @@ le feste vanno a prescindere dall'anno, invece pasqua e pasquetta sono direttame
 
 
 cambiare il sistema di controllo del turno, se l'anno per cui si sta calcolando la sosta ricalcola pasqua e pasquetta :checked: 
-
-
-
-To Do:
-    - Bugs fixing:
-        - No recent search appears when it should not
-    - Menu in place of the moon/sun icon
-        - In the menu there would be all the following section: (order TBD)
-            - Color change
-            - Search for "When I would be in a given place"
-            - (Favorites section)
-            - [Cambi registrati]
-
-            - Log out (will delete all the section -> add a button that will advertice the user of this)

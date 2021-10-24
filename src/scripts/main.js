@@ -12,22 +12,19 @@ getShift();
 getSoste();
 getNomi();
 
+// checkSavedElements();
 
-// hide/show footer on scroll
-
-// OLD METHOD
-var lastST = 0;
+var lastScrollTop = 0;
 $(window).scroll(function (event) {
-  var st = $(window).scrollTop();
-  if (st > 0 && st < (($(document).height() - $(window).height()))) {
-    if (st > (lastST + 7) ) {
-      $('footer').fadeOut('slow');
-    }
-    if (st < (lastST - 7)) {
-      $('footer').fadeIn('slow');
-    }
-    lastST = st;
+  var st = $(this).scrollTop();
+  if (st > lastScrollTop) {
+    // downscroll code
+    $('footer').fadeOut('slow');
+  } else {
+    // upscroll code
+    $('footer').fadeIn('slow');
   }
+  lastScrollTop = st;
 });
 
 $('#home-icon').click(function () {
