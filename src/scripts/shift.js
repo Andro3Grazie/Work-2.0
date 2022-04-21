@@ -7,11 +7,11 @@ function getTodayShift() {
   // Distance between the start date and the end date 
   let diff = new Date (dayLong - new Date(primoGiorno));
   diff = diff/1000/60/60/24;
-
+    
   for (let i = 0; i <= diff; i++) {
     let checkDate = ('0' + dayLong.getDate()).slice(-2) + '/' + ('0' + (dayLong.getMonth() + 1)).slice(-2) + '/' + dayLong.getFullYear();
-
-    getEaster(checkDate.split('/').pop());
+    
+    getEaster(dayLong.getFullYear());
 
     if (dayLong.getDay() != 0 && !feste.includes(checkDate.substring(0, 5)) && checkDate.substring(0, 5) != pasqua && checkDate.substring(0, 5) != pasquetta) {
       giorniLavorativi++;
